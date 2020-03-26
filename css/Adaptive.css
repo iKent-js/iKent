@@ -1,0 +1,204 @@
+:root {
+    box-sizing: border-box;
+    font-size: calc(1vw + 0.6em);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+* Ссылки
+*/
+a:link {
+    color: #1476b8;
+    font-weight: bold;
+    text-decoration: none;
+}
+a:visited {
+    color: #1430b8;
+}
+a:hover {
+    text-decoration: underline;
+    color: yellow;
+}
+a:active {
+    color: #b81414;
+}
+
+/*
+* Шапка
+*/
+.page-header {
+    padding: 0.4em 1em;
+    background-color: rgb(45, 90, 107);
+}
+
+@media (min-width: 35em) {
+    .page-header {
+        padding: 1em;
+    }
+}
+
+.title > h1 {
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin: .2em 0;
+}
+
+@media (min-width: 35em) {
+    .title > h1 {
+        font-size: 2.25rem;
+    }
+}
+
+.slogan {
+    color: #888;
+    text-align: center;
+    font-size: 0.875em;
+    margin: 0;
+}
+
+/*
+* Hero-изображение
+*/
+/* .hero {
+    margin-top: 15px;
+    padding: 2em 1em;
+    text-align: center;
+    background-image: url(images/logo-542x97.png);
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-color: rgba(253, 245, 127, 0.521);
+    color: #000;
+    font-weight: 999;
+    text-shadow: 0.1em 0.1em 0.3em #000;
+}
+
+@media (min-width: 35em) {
+    .hero {
+        padding: 5em 3em;
+        font-size: 1.2rem;
+    }
+} */
+
+/*
+* Основной раздел
+*/
+/* main {
+    padding: 1em;
+} */
+
+/* @media (min-width: 35em) {
+    main {
+        padding: 2em 1em;
+    }
+} */
+
+/* .subtitle {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+} */
+
+.menu {
+    position: relative;
+}
+
+.menu-toggle {
+    position: absolute;
+    top: -1.2em;
+    right: 0.1em;
+    border: 0;
+    background-color: transparent;
+    font-size: 3em;
+    width: 1em;
+    height: 1em;
+    line-height: 0.4;
+    text-indent: 5em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.menu-toggle::after {
+    position: absolute;
+    top: 0.1em;
+    left: 0.1em;
+    display: block;
+    content: "\2261";
+    text-indent: 0;
+}
+
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0;
+}
+
+@media (min-width: 35em) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .menu-dropdown {
+        display: block;
+        position: static;
+    }
+}
+
+.menu.is-open .menu-dropdown {
+    display: block;
+}
+
+.nav-menu {
+    margin: 0;
+    padding-left: 0;
+    border: 1px solid #ccc;
+    list-style: none;
+    background-color: #000;
+    color: #fff;
+}
+
+.nav-menu > li + li {
+    border-top: 1px solid #ccc;
+}
+
+.nav-menu > li > a {
+    display: block;
+    padding: 0.8em 1em;
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+}
+
+@media (min-width: 35em) {
+    .nav-menu {
+        display: flex;
+        border: 0;
+        padding: 0 1em;
+    }
+    .nav-menu > li {
+        flex: 1;
+    }
+    .nav-menu > li + li {
+        border: 0;
+    }
+    .nav-menu > li > a {
+        padding: 0.3em;
+        text-align: center;
+    }
+}
+
+/* @media (min-width: 35em) {
