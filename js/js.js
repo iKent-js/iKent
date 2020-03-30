@@ -11,6 +11,7 @@ let money = 50,
 alert('ученик JS 12');
 console.log('Привет ! Я не художник, я только учусь !');
 console.log(typeof money, income, deposit);
+console.log(typeof money);
 console.log(typeof income);
 console.log(typeof deposit);
 console.log('длина строки addExpenses = ' + addExpenses.length + ' символам');
