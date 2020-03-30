@@ -1,3 +1,16 @@
+'use strict';
+
+let money, 
+    income,
+    addExpenses,
+    deposit,
+    mission,
+    period;
+
+alert('ученик JS 12');
+console.log('Привет ! Я не художник, я только учусь !');
+
+
 
 (function() {
     var button = document.getElementById('toggle-menu');
@@ -7,6 +20,3 @@
         menu.classList.toggle('is-open');
     });
 })();
-
-var num = document.getElementsByClassName('page-header');
-console.log(num);

@@ -32,6 +32,7 @@
 
 .logo .logo_img {
     margin: 0 auto;
+    width: 184px;
     padding-top: 15px;
 }
 
@@ -52,10 +53,7 @@
 } */
 
 .main {
-    /* box-sizing: border-box; */
     font-size: 20px;
-    display: inline-block;
-    width: 25%;
     margin-top: 15px;
     padding: 30px;
     background-color: rgb(119, 119, 119);
