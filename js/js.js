@@ -17,4 +17,4 @@ console.log(typeof deposit);
 console.log('длина строки addExpenses = ' + addExpenses.length + ' символам');
 console.log('Период равен ' + period + ' месяцам.', 'Цель заработать ' + mission + ' рублей.');
 console.log(addExpenses.toLowerCase().split(' '));
-console.log(budgetDay);
+console.log(budgetDay.toFixed(1));
