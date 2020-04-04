@@ -5,7 +5,7 @@ let money = prompt('Ваш месячный доход ?', 'Введите чи�
 console.log(money); 
 
 let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-console.log(addExpenses);
+console.log(addExpenses.toUpperCase().split(','));
 
 let income = '"работа с сайтом"';
 
