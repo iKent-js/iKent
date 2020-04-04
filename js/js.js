@@ -12,7 +12,6 @@ let income = '"работа с сайтом"';
 let deposit = confirm('Есть ли у вас депозит в банке ?');
 
 let expenses1 = prompt('Введите обязятельную статью расходов ?');
-console.log(expenses1);
 
 let amount1 = prompt('Расходы по ' + expenses1 + ' Во сколько это обойдется ?');
     amount1 = (Number(amount1));
