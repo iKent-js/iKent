@@ -5,33 +5,36 @@ let isNumber = function(n) {
 };
 
 let money ,
-    addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 
-'cafe, car, casino, club');
-console.log(addExpenses.toUpperCase().split(','));
-
-let income = '"работа с сайтом"';
-let mission = 250000;
-let deposit = confirm('Есть ли у вас депозит в банке ?');
-
-// let expenses1 = prompt('Введите обязятельную статью расходов ?');
-
-// let amount1 = prompt('Расходы по ' + expenses1 + ' Во сколько это обойдется ?');
-//     amount1 = (Number(amount1));
-
-// let expenses2 = prompt('Введите обязательную статью расходов ?');
-
-// let amount2 = prompt('Расходы по ' + expenses2 + ' Во сколько это обойдется ?');
-//     amount2 = (Number(amount2));
-
-let start = function() {
+start = function() {
     do {
         money = prompt('Ваш месячный доход ?', '34000');
     }
     while (!isNumber(money));
+    money = +money;
 };
 
 start();
 
+// создаем объект
+let appData = {
+    income: {},
+    addIncome: [],
+    expenses: {},
+    addExpenses: [],
+    deposit: false,
+    budget: money,
+    budgetDay: 0,
+    budgetMonth: 0,
+    expensesMonth: 0,
+    mission: 250000,
+    period: 7,
+    asking: function() {
+        let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
+        appData.addExpenses = addExpenses.toUpperCase().split(',');
+            appData.deposit = confirm('Есть ли у вас депозит в банке ?');
+    }
+};
+console.log(appData);
 let expenses = [];
 
 // Объявить функцию getExpensesMonth. Функция возвращает сумму всех обязательных расходов за месяц  вариант 1
@@ -98,14 +101,6 @@ let accumulatedMonth1 = function(arg1, arg2) {
 accumulatedMonth1(money, expensesAmount);
 
 
-// showTypeOf
-let showTypeOf = function(data) {
-    console.log(data, typeof(data));
-};
-
-showTypeOf(money);
-showTypeOf(income);
-showTypeOf(deposit);
 
 // Объявить функцию getTargetMonth.
 // Подсчитывает за какой период будет достигнута цель, зная результат месячного накопления (accumulatedMonth)
@@ -113,9 +108,9 @@ showTypeOf(deposit);
 function getTargetMonth(arg1, arg2) {
     return arg1 / arg2;
 }
-getTargetMonth(mission, accumulatedMonth);
+getTargetMonth(appData.mission, accumulatedMonth);
 
-let getTargetMonths = mission / accumulatedMonth;
+let getTargetMonths = appData.mission / accumulatedMonth;
     if (getTargetMonths >= 0) {
         console.log('Cрок достижения цели ' + Math.ceil(getTargetMonths) + ' месяцев(а)');
     } else if (getTargetMonths < 0) {
