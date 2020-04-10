@@ -5,15 +5,16 @@
 }
 
 .allpage {
-    background: lightcoral;
-    padding: 0 0 60px 0;
+    background: url('/img/darkgrey-asphalt.jpg');
+    padding: 0 0 0 0;
+    height: 100vh;
 }
 
 
 .container {
     margin: 0 auto;
     width: 1200px;
-    /* background-color: #11301a;  */
+    background-color: #23663f54; 
     border: 2px solid black;
     overflow: visible;
 }
@@ -21,25 +22,25 @@
 .logo {
     height: 250px;
     position: relative;
-    background-color: lightblue;
+    background: url('/img/gray-texture-3.jpg');
 }
 
 .logo_img_block {   
     position: absolute;
-    top: 0px;
+    top: 15px;
     left: 15px;
 }
 
 .logo .logo_img {
     margin: 0 auto;
     width: 184px;
-    padding-top: 15px;
+    border: 1px solid white;
 }
 
 .logo .logo_text {
-    color: #ffffff;
+    color: #000000;
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: normal;
     line-height: 24px;
     text-transform: uppercase;
@@ -56,6 +57,7 @@
     font-size: 20px;
     margin-top: 15px;
     padding: 30px;
-    background-color: rgb(119, 119, 119);
+    background-color: rgba(119, 119, 119, 0.5);
     color: white;
+    box-shadow: inset 0px 0px 10px 5px rgb(78, 61, 175);
 }
