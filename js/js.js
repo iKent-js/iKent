@@ -121,14 +121,14 @@ console.log('Расходы за месяц: ' + appData.expensesMonth);
 console.log('Цель будет достигнута за: ' + Math.round(appData.period) + ' месяц(а,ев)');
 console.log(appData.getStatusIncome());
 
-// for ( let getObj in appData) {
-//     console.log('Наша программа включает в себя данные : ' + 'ключ ' + getObj + ' значение ' + appData[getObj]);
-// }
-// // от себя добавил )))
-// for ( let subObj in appData.expenses) {
-//     console.log('Наш внутренний объект включает в себя : ' + 'ключ ' + subObj + 
-//     ' значение ' + appData.expenses[subObj]);
-// }
+for ( let getObj in appData) {
+    console.log('Наша программа включает в себя данные : ' + 'ключ ' + getObj + ' значение ' + appData[getObj]);
+}
+// от себя добавил )))
+for ( let subObj in appData.expenses) {
+    console.log('Наш внутренний объект включает в себя : ' + 'ключ ' + subObj + 
+    ' значение ' + appData.expenses[subObj]);
+}
 appData.getInfoDeposit();
 
 console.log((String(appData.addExpenses)).charAt(0).toUpperCase() + (String(appData.addExpenses[0])).substring(1));
