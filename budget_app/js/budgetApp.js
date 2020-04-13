@@ -4,11 +4,34 @@ let isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 };
 // переменная money с функцией присваивающая этой переменной значение с типом ЧИСЛО
+let calculate = document.getElementById('start'),
+    buttonPlus1 = document.getElementsByTagName('button')[0],
+    buttonPlus2 = document.getElementsByTagName('button')[1],
+    checkBox = document.querySelector('#deposit-check'),
+    additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
+    budgetDayValue = document.getElementsByClassName('budget_day-value'),
+    expensesMonthValue = document.getElementsByClassName('expenses_month-value'),
+    additionalIncomeValue = document.getElementsByClassName('additional_income-value'),
+    additionalExpensesValue = document.getElementsByClassName('additional_expenses-value'),
+    incomePerionValue = document.getElementsByClassName('income_period-value'),
+    targetMonthValue = document.getElementsByClassName('target_month-value'),
+
+    salaryAmount = document.querySelector('.salary-amount'),
+    incomeTitle = document.querySelector('.income-title'),
+    incomeAmount = document.querySelector('.income-amount'),
+    expensesTitle = document.querySelector('.expenses-title'),
+    expensesAmount = document.querySelector('.expenses-amount'),
+    additionalExpensesItem = document.querySelector('.additional_expenses-item'),
+    depositAmount = document.querySelector('.deposit-amount'),
+    depositPercent = document.querySelector('deposit-percent'),
+    targetAmount = document.querySelector('.target-amount'),
+    periodSelect = document.querySelector('.period-select');
+
 
 let money ,
 start = function() {
     do {
-        money = prompt('Ваш месячный доход ?', '34000');
+        money = prompt('Ваш месячный доход ?', '35000');
     }
     while (!isNumber(money));
     money = +money;
@@ -122,14 +145,14 @@ console.log('Расходы за месяц: ' + appData.expensesMonth);
 console.log('Цель будет достигнута за: ' + Math.round(appData.period) + ' месяц(а,ев)');
 console.log(appData.getStatusIncome());
 
-for ( let getObj in appData) {
-    console.log('Наша программа включает в себя данные : ' + 'ключ ' + getObj + ' значение ' + appData[getObj]);
-}
-// от себя добавил )))
-for ( let subObj in appData.expenses) {
-    console.log('Наш внутренний объект включает в себя : ' + 'ключ ' + subObj + 
-    ' значение ' + appData.expenses[subObj]);
-}
+// for ( let getObj in appData) {
+//     console.log('Наша программа включает в себя данные : ' + 'ключ ' + getObj + ' значение ' + appData[getObj]);
+// }
+// // от себя добавил )))
+// for ( let subObj in appData.expenses) {
+//     console.log('Наш внутренний объект включает в себя : ' + 'ключ ' + subObj + 
+//     ' значение ' + appData.expenses[subObj]);
+// }
 appData.getInfoDeposit();
 
 console.log((String(appData.addExpenses)).charAt(0).toUpperCase() + (String(appData.addExpenses[0])).substring(1));
