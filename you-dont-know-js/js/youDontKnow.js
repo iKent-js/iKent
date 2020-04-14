@@ -1,4 +1,5 @@
 'use strict';
+
 //получили элементы со страницы в переменные 
 const newElem = document.createElement('li');
 let getParrent = document.querySelector('.books'),
@@ -8,18 +9,16 @@ let getParrent = document.querySelector('.books'),
     changeBackground = document.querySelector('body'),
     adds = document.querySelector('.adv'),
     getAelems = document.querySelectorAll('a');
-console.log(getUlLists);
-console.log(getUlLiElems);
-console.log(getAelems);
+
 //заталкиваем новый элемент в книгу №6
 newElem.textContent = 'Глава 8: За пределами ES6';
 getUlLiElems[26].before(newElem);
+
 //поменяли фон   
 changeBackground.style.background = 'url("/you-dont-know-js/image/you-dont-know-js.jpg")';
 
 //исправляем заголовок в книге №3
 getAelems[4].textContent = 'Книга 3. this и Прототипы Объектов';
-console.log(getAelems);
 //поменяли последовательность 
 
 getParrent.prepend(getBooksDivs[4]);
