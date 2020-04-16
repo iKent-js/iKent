@@ -184,8 +184,8 @@ periodSelect.addEventListener('input', function() {
     document.querySelector('.period-amount').textContent = periodSelect.value;
 });
 calculate.addEventListener('click', function() {
-    if (salaryAmount.value === '') {
-        return;
+    if (!isNumber(salaryAmount.value)) {
+        alert('Введите');
     } else {
         appData.start();
     }
