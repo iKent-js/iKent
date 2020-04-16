@@ -3,7 +3,7 @@
 let isNumber = function(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 };
-// переменная money с функцией присваивающая этой переменной значение с типом ЧИСЛО
+
 let calculate = document.getElementById('start'),
     buttonPlus1 = document.getElementsByTagName('button')[0],
     buttonPlus2 = document.getElementsByTagName('button')[1],
