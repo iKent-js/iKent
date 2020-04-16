@@ -45,21 +45,12 @@ let appData = {
     budgetMonth: 0,
     expensesMonth: 0,
     start: function() {
-        
-        if(salaryAmount.value === '') {
-            alert('Ошибка, поле "Месячный доход" должно быть заполнено !');
-            return;
-        }
-
         appData.budget = +salaryAmount.value;
-
         appData.getExpenses();
         appData.getIncome();
         appData.getExpensesMonth();
-        
         appData.getAddExpenses();
         appData.getAddIncome();
-        
         appData.getBudget();
         appData.showResult();
     },
@@ -71,6 +62,9 @@ let appData = {
         additionalIncomeValue.value = appData.addIncome.join(', ');
         targetMonthValue.value = Math.ceil(appData.getTargetMonth());
         incomePeriodValue.value = appData.calcSavedMoney();
+        periodSelect.addEventListener('change', function() {
+            incomePeriodValue.value = appData.calcSavedMoney();
+        });
     },
     addIncomeBlock: function() {
         let cloneIncomeItem = incomeItems[0].cloneNode(true);
@@ -189,7 +183,14 @@ let appData = {
 periodSelect.addEventListener('input', function() {
     document.querySelector('.period-amount').textContent = periodSelect.value;
 });
-calculate.addEventListener('click', appData.start);
+calculate.addEventListener('click', function() {
+    if (salaryAmount.value === '') {
+        return;
+    } else {
+        appData.start();
+    }
+});
+// calculate.addEventListener('click', appData.start);
 buttonPlus1.addEventListener('click', appData.addIncomeBlock);
 buttonPlus2.addEventListener('click', appData.addExpensesBlock);
 
