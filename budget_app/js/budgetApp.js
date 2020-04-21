@@ -213,14 +213,6 @@ let appData = {
             }
             buttonPlus2.style.display = 'block';
 
-            // incomeItems.forEach (function(item) {
-            //     delete appData.income[item];
-            // });
-
-            // incomeItems.forEach (function(item) {
-            //     delete appData.income[item];
-            // });
-
             appData.addIncome.pop();
             appData.addIncome.pop();
 
@@ -262,12 +254,10 @@ let start = calculate.addEventListener('click', function() {
         let addIncItems = document.querySelectorAll('.data .income-items input[type="text"]');
         for ( let i = 0; i < addIncItems.length; i++) {
             addIncItems[i].setAttribute('disabled', 'disabled');
-            // console.log(addIncItems);
         }
         let addExItems = document.querySelectorAll('.data .expenses-items input[type="text"]');
         for ( let i = 0; i < addExItems.length; i++) {
             addExItems[i].setAttribute('disabled', 'disabled');
-            // console.log(addExItems);
         }
     calculate.style.display = 'none';
     cancel.style.display = 'block';
@@ -277,4 +267,3 @@ let start = calculate.addEventListener('click', function() {
 // кнопки для добавления дополнительный полей в калькуляторе
 buttonPlus1.addEventListener('click', appData.addIncomeBlock);
 buttonPlus2.addEventListener('click', appData.addExpensesBlock);
-console.log(appData);
