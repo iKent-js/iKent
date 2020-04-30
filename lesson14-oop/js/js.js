@@ -1,4 +1,5 @@
 'use strict';
+/*
 //////////////////////////////////////////////////////////////////////////////////////////
 let btn = document.getElementsByTagName('button')[1],
     divs = document.querySelectorAll('.main');
@@ -111,6 +112,93 @@ DomElement.prototype.createElem = function() {
 };
 //////////////////////////////////////////////////////////////////////////////////////////
 const domElement = new DomElement();
+const domElement2 = new DomElement();
+
 //////////////////////////////////////////////////////////////////////////////////////////
 domElement.createElem();
 // console.log(domElement);
+console.log(domElement.createElem === domElement2.createElem);
+
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////      OTHER VERSION     ////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+function DomElement(selector, height, width, bg, fontSize) {
+    this.selector = selector;
+    this.height = height;
+    this.width = width;
+    this.bg = bg;
+    this.fontSize = fontSize;
+}
+
+DomElement.prototype.createElem = function() {
+    let mainContainer = document.querySelector('body'),
+        cloneDiv,
+        cloneDivInput = document.createElement('input'),
+        closeBtn = document.createElement('button'),
+        _this = this;
+        
+        closeBtn.style.cssText = `background-color: lightgrey;
+                                    height: 50px;
+                                    width: 100%;
+                                    cursor: pointer;`;
+        closeBtn.textContent = 'close me';
+
+
+        cloneDivInput.style.cssText = `width: 100%; 
+                                        margin-bottom: 20px;
+                                        padding: 30px;
+                                        height: 30px; 
+                                        background-color: black; 
+                                        color: yellow;`;
+
+        window.onload = function() {
+        
+            if (_this.selector[0] === '.') {
+                cloneDiv = document.createElement('div');
+                cloneDiv.className = _this.selector.substring(1);
+                mainContainer.append(cloneDiv);
+                
+            } else if (_this.selector[0] === '#') {
+                cloneDiv = document.createElement('p');
+                cloneDiv.id = _this.selector.substring(1);
+                mainContainer.append(cloneDiv);
+                
+            } else { 
+                return;
+            }
+
+            cloneDiv.style.cssText = `margin: 0 auto;
+                                    margin-bottom: 20px;
+                                    padding: 10px; 
+                                    text-align: justify;
+                                    cursor: pointer;`;
+            cloneDiv.style.height = _this.height;
+            cloneDiv.style.width = _this.width;
+            cloneDiv.style.backgroundColor = _this.bg;
+            cloneDiv.style.fontSize = _this.fontSize;
+            cloneDiv.textContent = 'click on me please ;)';
+
+            closeBtn.addEventListener('click', function() {
+                cloneDiv.style.display = 'none';
+                closeBtn.style.display = 'none';
+                cloneDivInput.style.display = 'none';
+            });
+
+            cloneDiv.addEventListener('click', function() {
+                cloneDivInput.setAttribute('placeholder', 'you can change text here =)');
+                cloneDiv.textContent = 'thanx :)';
+                mainContainer.before(cloneDivInput);
+                cloneDiv.after(closeBtn);
+                cloneDivInput.addEventListener('input', function() {
+                    cloneDiv.textContent = cloneDivInput.value;
+                });
+            });
+
+        };
+};
+//////////////////////////////////////////////////////////////////////////////////////////
+let domElement = new DomElement('#block', '800px', '1200px', 'lightblue', '3em');
+//////////////////////////////////////////////////////////////////////////////////////////
+domElement.createElem();
