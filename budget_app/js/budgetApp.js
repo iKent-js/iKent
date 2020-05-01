@@ -275,7 +275,7 @@ AppData.prototype.eventListener = function() {
         appData.start();
         }
     });
-calculate.addEventListener('click', this.start.bind(this));
+// calculate.addEventListener('click', this.start.bind(this));
 buttonPlus1.addEventListener('click', this.addIncomeBlock.bind(this));
 buttonPlus2.addEventListener('click', this.addExpensesBlock.bind(this));
 };
