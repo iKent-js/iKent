@@ -17,25 +17,24 @@ let calculate = document.getElementById('start'),
     additionalExpensesValue = document.getElementsByClassName('additional_expenses-value')[0],
     incomePeriodValue = document.getElementsByClassName('income_period-value')[0],
     targetMonthValue = document.getElementsByClassName('target_month-value')[0],
-
     salaryAmount = document.querySelector('.salary-amount'),
     incomeTitle = document.querySelector('.income-title'),
-    // incomeAmount = document.querySelector('.income-amount'),
     incomeItems = document.querySelectorAll('.income-items'),
     expensesTitle = document.querySelector('.expenses-title'),
     expensesAmount = document.querySelector('.expenses-amount'),
     additionalExpensesItem = document.querySelector('.additional_expenses-item'),
-    // depositAmount = document.querySelector('.deposit-amount'),
     expensesItems = document.querySelectorAll('.expenses-items'),
     depositPercent = document.querySelector('deposit-percent'),
     targetAmount = document.querySelector('.target-amount'),
-    periodSelect = document.querySelector('.period-select');
-
-let allInput = document.querySelectorAll('input'),
+    periodSelect = document.querySelector('.period-select'),
+    allInput = document.querySelectorAll('input'),
     getInputData = document.querySelectorAll('.data input[type="text"]'),
     getInputResult = document.querySelectorAll('.result input[type="text"]'),
     periodAmount = document.getElementsByClassName('period-amount')[0];
 
+
+
+    
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 const AppData = function() {
     this.income = {};
@@ -220,39 +219,45 @@ AppData.prototype.reset = function() {
         }
         buttonPlus2.style.display = 'block';
 
-        _this.addIncome.pop();
-        _this.addIncome.pop();
-
-        for ( let key in this.income) {
-            delete this.income[key];
+        for ( let key in _this.income) {
+            delete _this.income[key];
         }
 
-        for ( let key in this.expenses) {
-            delete this.expenses[key];
+        for ( let key in _this.expenses) {
+            delete _this.expenses[key];
         }
 
-        _this.addExpenses.pop();
-        _this.addExpenses.pop();
+        do {
+            _this.addExpenses.pop();
+        } while (_this.addExpenses.length > 0);
+
+        do {
+            _this.addIncome.pop();
+        } while (_this.addIncome.length > 0);
+
+
+        // for ( let item of _this.addIncome) {
+        //     _this.addIncome[item].pop();
+        // }
         
-    this.budget = 0;
-    this.budgetDay = 0;
-    this.budgetMonth = 0;
-    this.expensesMonth = 0;
-    this.percentDeposit = 0;
-    this.moneyDeposit = 0;
-    this.incomeMonth = 0;
+    _this.budget = 0;
+    _this.budgetDay = 0;
+    _this.budgetMonth = 0;
+    _this.expensesMonth = 0;
+    _this.percentDeposit = 0;
+    _this.moneyDeposit = 0;
+    _this.incomeMonth = 0;
     salaryAmount.value = '';
     periodSelect.value = 1;
     periodAmount.textContent = periodSelect.value;
     cancel.style.display = 'none';
     calculate.style.display = 'block';
-    return;
+    // console.log(_this);
+    // return;
     });
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 const appData = new AppData();
-
-console.log(appData);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 AppData.prototype.eventListener = function() {
     calculate.addEventListener('click', function() {
